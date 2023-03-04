@@ -1,9 +1,10 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
-const {pageTitle} = Astro.props;
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+const { pageTitle } = Astro.props;
 ---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -11,12 +12,33 @@ const {pageTitle} = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style>
+      .backTop {
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        opacity: 0;
+      }
+      .backTop img {
+        width: 30px;
+        height: 30px;
+      }
+    </style>
   </head>
   <body>
     <Header />
     <h1>{pageTitle}</h1>
     <slot />
-    <Footer />
+    <!-- <Footer /> -->
+    <div class="backTop" id="backTop"><img src="/返回顶部.svg" alt="" /></div>
     <script>
       import "../scripts/menu.js";
     </script>
